@@ -1,10 +1,10 @@
 Reproduction repository for Auth.js VK provider [issue](https://github.com/nextauthjs/next-auth/issues).
 
-**Provider type**
+### Provider type
 
 VK
 
-**Environment**
+### Environment
 
 ```
   System:
@@ -25,7 +25,7 @@ VK
     react: ^18 => 18.3.1
 ```
 
-**How to reproduce**
+### How to reproduce
 
 - Clone the repository from Reproduction URL and run `npm install`
 - Create and setup vk app [https://id.vk.com/about/business/go](https://id.vk.com/about/business/go)
@@ -36,11 +36,11 @@ VK
 - Run dev app `npm run dev`
 - Go to localhost and click the button "SignIn"
 
-**Describe the issue**
+### Describe the issue
 
-When I try to sign in with VK provider I receive an error:
+When trying to sign in through a VK provider, an error is displayed
 `{"error":"invalid_request","error_description":"Code challenge method is unsupported"}`
 
-**Expected behavior**
+### Expected behavior
 
 Normal sign in flow without this error.
