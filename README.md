@@ -1,4 +1,4 @@
-Reproduction repository for Auth.js VK provider [issue](https://github.com/nextauthjs/next-auth/issues).
+Reproduction repository for Auth.js VK provider [issue](https://github.com/nextauthjs/next-auth/issues/11633).
 
 ### Provider type
 
@@ -27,7 +27,7 @@ VK
 
 ### How to reproduce
 
-- Clone the repository from Reproduction URL and run `npm install`
+- Clone the repository and run `npm install`
 - Create and setup vk app [https://id.vk.com/about/business/go](https://id.vk.com/about/business/go)
 - Create .env file from .env.example
 - Fill `AUTH_VK_ID, AUTH_VK_SECRET` variables from created vk app
