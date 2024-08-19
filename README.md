@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Reproduction repository for Auth.js VK provider [issue](https://github.com/nextauthjs/next-auth/issues).
 
-## Getting Started
+**Provider type**
 
-First, run the development server:
+VK
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Environment**
+
+```
+  System:
+    OS: Windows 10 10.0.19045
+    CPU: (12) x64 AMD Ryzen 5 2600 Six-Core Processor
+    Memory: 5.75 GB / 15.93 GB
+  Binaries:
+    Node: 20.11.0 - C:\Program Files\nodejs\node.EXE
+    npm: 10.2.4 - C:\Program Files\nodejs\npm.CMD
+    pnpm: 8.15.6 - C:\Program Files\nodejs\pnpm.CMD
+  Browsers:
+    Edge: Spartan (44.19041.3570.0), Chromium (127.0.2651.74)
+    Internet Explorer: 11.0.19041.3570
+  npmPackages:
+    @auth/prisma-adapter: ^2.4.2 => 2.4.2
+    next: 14.2.5 => 14.2.5
+    next-auth: ^5.0.0-beta.20 => 5.0.0-beta.20
+    react: ^18 => 18.3.1
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**How to reproduce**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Clone the repository from Reproduction URL and run `npm install`
+- Create and setup vk app [https://id.vk.com/about/business/go](https://id.vk.com/about/business/go)
+- Create .env file from .env.example
+- Fill `AUTH_VK_ID, AUTH_VK_SECRET` variables from created vk app
+- Run docker db container `npm run db`
+- Push db schema `npx prisma db push`
+- Run dev app `npm run dev`
+- Go to localhost and click the button "SignIn"
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Describe the issue**
 
-## Learn More
+When I try to sign in with VK provider I receive an error:
+`{"error":"invalid_request","error_description":"Code challenge method is unsupported"}`
 
-To learn more about Next.js, take a look at the following resources:
+**Expected behavior**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Normal sign in flow without this error.
